@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {   
+    private Rigidbody2D rb;
     int walkSpeed = 5;
-    int jumpHeight = 2.5; //tiles
-    boolean isOnGround = true;
-    int lightRadius = 5; //tiles
-    rb = GetComponent<Rigidbody2D>();
+    int jumpHeight = 2; //tiles
+    bool isOnGround = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
