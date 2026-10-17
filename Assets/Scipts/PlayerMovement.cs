@@ -6,9 +6,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 spawnPoint;
     private Vector2 moveDirection;
     private Rigidbody2D rb;
-     [Header("  WalkSpeed")]
+     [Header("Movement Settings")]
     [SerializeField] private float walkSpeed = 5.0f; //tiles
-     [Header("Jump Height")] per second
     [SerializeField] private float jumpHeight = 2.5f; //tiles
     bool isOnGround = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
         if (InputSystem.actions["Jump"].triggered && isOnGround)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Sqrt(jumpHeight * -2f * Physics2D.gravity.y));
+            isOnGround = false;
         }
     }
 
@@ -31,4 +31,13 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(moveDirection.x * walkSpeed, rb.linearVelocity.y);
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isOnGround = true;
+        }
+    }
+
 }
