@@ -32,12 +32,18 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocity = new Vector2(moveDirection.x * walkSpeed, rb.linearVelocity.y);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        foreach (ContactPoint2D contact in collision.contacts)
         {
-            isOnGround = true;
+            if (contact.normal.y > 0.5f)
+            {
+                isOnGround = true;
+                break;
+            }
         }
+        // Physcias. the Normal is the force opposite to what any X object is "standing" on.
+        // Getting its slope/y value can let me knwo if my player is touchign a wall or he flat groudn or a slope and react accordingly
     }
 
 }
