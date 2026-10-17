@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     {
         foreach (ContactPoint2D contact in collision.contacts)
         {
-            if (contact.normal.y > 0.89f)
+            if (contact.normal.y > 0.75f)
             {
                 isOnGround = true;
                 break;
@@ -44,6 +44,11 @@ public class PlayerMovement : MonoBehaviour
         }
         // Physcias. the Normal is the force opposite to what any X object is "standing" on.
         // Getting its slope/y value can let me knwo if my player is touchign a wall or he flat groudn or a slope and react accordingly
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        isOnGround = false;
     }
 
 }
