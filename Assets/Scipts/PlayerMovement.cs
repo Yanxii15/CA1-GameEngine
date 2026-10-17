@@ -6,8 +6,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 spawnPoint;
     private Vector2 moveDirection;
     private Rigidbody2D rb;
-    float walkSpeed = 5.0f; //tiles per second
-    float jumpHeight = 2.5f; //tiles
+     [Header("  WalkSpeed")]
+    [SerializeField] private float walkSpeed = 5.0f; //tiles
+     [Header("Jump Height")] per second
+    [SerializeField] private float jumpHeight = 2.5f; //tiles
     bool isOnGround = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
