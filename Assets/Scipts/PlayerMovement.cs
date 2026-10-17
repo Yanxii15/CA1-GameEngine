@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     {
         foreach (ContactPoint2D contact in collision.contacts)
         {
-            if (contact.normal.y > 0.5f)
+            if (contact.normal.y > 0.89f)
             {
                 isOnGround = true;
                 break;
