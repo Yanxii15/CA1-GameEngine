@@ -21,13 +21,12 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = InputSystem.actions["Move"].ReadValue<Vector2>();
         if (InputSystem.actions["Jump"].triggered && isOnGround)
         {
-            rb.velocity = new Vector2(rb.velocity.x, Mathf.Sqrt(jumpHeight * -2f * Physics2D.gravity.y));
-            isOnGround = false;
+            rb.velocity = new Vector2(rb.linearVelocity.x, Mathf.Sqrt(jumpHeight * -2f * Physics2D.gravity.y));
         }
     }
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveDirection.x * walkSpeed, rb.velocity.y);
+        rb.linearVelocity = new Vector2(moveDirection.x * walkSpeed, rb.linearVelocity.y);
     }
 }
