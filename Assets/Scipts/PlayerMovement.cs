@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = InputSystem.actions["Move"].ReadValue<Vector2>();
         if (InputSystem.actions["Jump"].triggered && isOnGround)
         {
-            rb.velocity = new Vector2(rb.linearVelocity.x, Mathf.Sqrt(jumpHeight * -2f * Physics2D.gravity.y));
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Sqrt(jumpHeight * -2f * Physics2D.gravity.y));
         }
     }
 
