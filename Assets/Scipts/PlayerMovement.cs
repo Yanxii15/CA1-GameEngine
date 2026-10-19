@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
      [Header("Movement Settings")]
     [SerializeField] private float walkSpeed = 5.0f; //tiles
     [SerializeField] private float jumpHeight = 2.5f; //tiles
+    [SerializeField] private bool isForwards = true;
     bool isOnGround = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,6 +21,14 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         moveDirection = InputSystem.actions["Move"].ReadValue<Vector2>();
+        if (moveDirection.x > 0)
+        {
+            isForwards = true;
+        }
+        else if (moveDirection.x < 0)
+        {
+            isForwards = false;
+        }
         if (InputSystem.actions["Jump"].triggered && isOnGround)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Sqrt(jumpHeight * -2f * Physics2D.gravity.y));
