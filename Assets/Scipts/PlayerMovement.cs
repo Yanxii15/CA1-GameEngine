@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,6 +9,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveDirection;
     float currentSpeed;
     private Rigidbody2D rb;
+
+    [Header("Lighting")]
+    [SerializeField] private Light2D playerLight;
 
     [Header("Movement Settings")]
     [SerializeField] private float MaxwalkSpeed = 5.0f;
@@ -72,4 +76,14 @@ public class PlayerMovement : MonoBehaviour
     {
         isOnGround = false;
     }
+
+    void LightingControl(float intensity)
+    {   
+        //will be controlled based on player "Lives", o represent ease when they die alot
+        if (playerLight != null)
+        {
+            playerLight.intensity = intensity;
+        }
+    }
+
 }
