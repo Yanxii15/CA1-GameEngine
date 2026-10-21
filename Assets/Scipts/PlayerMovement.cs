@@ -3,11 +3,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {   
+    private Animater animator;
     private Vector2 spawnPoint;
     private Vector2 moveDirection;
     private Rigidbody2D rb;
-     [Header("Movement Settings")]
-    [SerializeField] private float walkSpeed = 5.0f; //tiles
+    [Header("Movement Settings")]
+    [SerializeField] private float MaxwalkSpeed = 5.0f; //tiles
     [SerializeField] private float jumpHeight = 2.5f; //tiles
     [SerializeField] private bool isForwards = true;
     bool isOnGround = true;
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         moveDirection = InputSystem.actions["Move"].ReadValue<Vector2>();
+        // if to knwo the players movin directio nfor bool
         if (moveDirection.x > 0)
         {
             isForwards = true;
@@ -29,16 +31,21 @@ public class PlayerMovement : MonoBehaviour
         {
             isForwards = false;
         }
+        animator.SetBool("RacingR", isForwards);
+        //fixing bug with double jump
         if (InputSystem.actions["Jump"].triggered && isOnGround)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Sqrt(jumpHeight * -2f * Physics2D.gravity.y));
             isOnGround = false;
         }
+        // For controlling the Variable 2 i nthe aniamtor panel
+            float currentSpeed = Mathf.Abs(rb.linearVelocity.x);
+            animator.SetFloat("Speed", currentSpeed);
     }
 
     void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(moveDirection.x * walkSpeed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(moveDirection.x * MaxwalkSpeed, rb.linearVelocity.y);
     }
 
     void OnCollisionStay2D(Collision2D collision)
