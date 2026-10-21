@@ -5,16 +5,16 @@ public class PlayerMovement : MonoBehaviour
 {   
     private SpriteRenderer spriteRenderer;
     private Animator animator;
-    private Vector2 spawnPoint;
     private Vector2 moveDirection;
     float currentSpeed;
     private Rigidbody2D rb;
+
     [Header("Movement Settings")]
-    [SerializeField] private float MaxwalkSpeed = 5.0f; //tiles
-    [SerializeField] private float jumpHeight = 2.5f; //tiles
+    [SerializeField] private float MaxwalkSpeed = 5.0f;
+    [SerializeField] private float jumpHeight = 2.5f;
     [SerializeField] private bool isForwards = true;
     bool isOnGround = true;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -22,30 +22,33 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         moveDirection = InputSystem.actions["Move"].ReadValue<Vector2>();
-        // if to knwo the players movin directio nfor bool
-        if (moveDirection.x > 0)
+
+        // Only update facing direction if the player is actually pressing left or right
+        if (moveDirection.x > 0.01f)
         {
             isForwards = true;
         }
-        else if (moveDirection.x < 0)
+        else if (moveDirection.x < -0.01f)
         {
             isForwards = false;
-            spriteRenderer.flipX = true;
         }
-        animator.SetBool("RacingR", isForwards);
-        //fixing bug with double jump
+
+        // Send the facing direction to the animator (RacingR)
+        animator.SetBool("FacingR", isForwards);
+
+        // Jump logic
         if (InputSystem.actions["Jump"].triggered && isOnGround)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Sqrt(jumpHeight * -2f * Physics2D.gravity.y));
             isOnGround = false;
         }
-        // For controlling the Variable 2 i nthe aniamtor panel
-            currentSpeed = Mathf.Abs(rb.linearVelocity.x);
-            animator.SetFloat("Speed", currentSpeed);
+
+        // Speed parameter for animator
+        currentSpeed = Mathf.Abs(rb.linearVelocity.x);
+        animator.SetFloat("Speed", currentSpeed);
     }
 
     void FixedUpdate()
@@ -63,13 +66,10 @@ public class PlayerMovement : MonoBehaviour
                 break;
             }
         }
-        // Physcias. the Normal is the force opposite to what any X object is "standing" on.
-        // Getting its slope/y value can let me knwo if my player is touchign a wall or he flat groudn or a slope and react accordingly
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
         isOnGround = false;
     }
-
 }
