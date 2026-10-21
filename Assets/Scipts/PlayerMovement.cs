@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     private Animater animator;
     private Vector2 spawnPoint;
     private Vector2 moveDirection;
+    float currentSpeed;
     private Rigidbody2D rb;
     [Header("Movement Settings")]
     [SerializeField] private float MaxwalkSpeed = 5.0f; //tiles
@@ -39,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
             isOnGround = false;
         }
         // For controlling the Variable 2 i nthe aniamtor panel
-            float currentSpeed = Mathf.Abs(rb.linearVelocity.x);
+            currentSpeed = Mathf.Abs(rb.linearVelocity.x);
             animator.SetFloat("Speed", currentSpeed);
     }
 
