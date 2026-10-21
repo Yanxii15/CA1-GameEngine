@@ -3,7 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {   
-    private Animater animator;
+    private SpriteRenderer spriteRenderer;
+    private Animator animator;
     private Vector2 spawnPoint;
     private Vector2 moveDirection;
     float currentSpeed;
@@ -17,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -31,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         else if (moveDirection.x < 0)
         {
             isForwards = false;
+            spriteRenderer.flipX = true;
         }
         animator.SetBool("RacingR", isForwards);
         //fixing bug with double jump
