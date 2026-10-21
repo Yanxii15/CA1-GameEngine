@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
      [Header("Movement Settings")]
     [SerializeField] private float walkSpeed = 5.0f; //tiles
     [SerializeField] private float jumpHeight = 2.5f; //tiles
-    //[SerializeField] private bool isForwards = true;
+    [SerializeField] private bool isForwards = true;
     bool isOnGround = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
