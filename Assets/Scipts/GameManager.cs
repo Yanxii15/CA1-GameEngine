@@ -3,6 +3,7 @@ using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
 {
+    
     [Header("Lighting")]
     //I likd thel ook of out 1.5 wiht in 0.35 therefore ue rtio akin to tha
     [SerializeField] private Light2D playerLight;

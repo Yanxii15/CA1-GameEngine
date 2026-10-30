@@ -9,10 +9,19 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image[] hearts;
     [SerializeField] private GameObject menu;
     [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private UIManager uiManager;
+    [SerializeField] private Sprite heartFull;
+    [SerializeField] private Sprite heartEmpty;
 
     void Start()
     {
         menu.SetActive(true);
+    }
+
+    public void StartGame()
+    {
+        menu.SetActive(false);
         playerMovement.enabled = true;
     }
 
