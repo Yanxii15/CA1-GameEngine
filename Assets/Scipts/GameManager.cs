@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
         {
             RespawnPlayer();
             UpdateLighting(playerCurrentLives);
-            InnerLight(playerLight.pointLightOuterRadius);
         }
     }
 
@@ -60,26 +59,23 @@ public class GameManager : MonoBehaviour
 
     void UpdateLighting(int lives)
     {   
-        float currentOuter;
         if (playerLight != null)
         {
             if (lives == 3)
             {
                 playerLight.pointLightOuterRadius = minLightRadius;
-                currentOuter = playerLight.pointLightOuterRadius;
             }
             else if (lives == 2)
             {
                 playerLight.pointLightOuterRadius = middleLightRadius;
-                currentOuter = playerLight.pointLightOuterRadius;
             }
             else if (lives == 1)
             {
                 playerLight.pointLightOuterRadius = maxLightRadius;
-                currentOuter = playerLight.pointLightOuterRadius;
             }
+            InnerLight(playerLight.pointLightOuterRadius);
         }
-        InnerLight(currentOuter);
+        
     }
 
     void InnerLight(float currentOuter)
