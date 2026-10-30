@@ -23,8 +23,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         playerCurrentLives = playerMaxLives;
-        UpdateLighting(minLightRadius);
-        //Need o add Respawn point in here somehow. either get the players position when htey sart he game or a new object with a tag
+        UpdateLighting(playerCurrentLives);
     }
 
     // Update is called once per frame
@@ -61,21 +60,26 @@ public class GameManager : MonoBehaviour
 
     void UpdateLighting(int lives)
     {   
+        float currentOuter;
         if (playerLight != null)
         {
             if (lives == 3)
             {
-                playerLight.pointLightOuterRadius = maxLightRadius;
+                playerLight.pointLightOuterRadius = minLightRadius;
+                float currentOuter = playerLight.pointLightOuterRadius;
             }
             else if (lives == 2)
             {
                 playerLight.pointLightOuterRadius = middleLightRadius;
+                float currentOuter = playerLight.pointLightOuterRadius;
             }
             else if (lives == 1)
             {
-                playerLight.pointLightOuterRadius = minLightRadius;
+                playerLight.pointLightOuterRadius = maxLightRadius;
+                float currentOuter = playerLight.pointLightOuterRadius;
             }
         }
+        InnerLight(currentOuter);
     }
 
     void InnerLight(float currentOuter)

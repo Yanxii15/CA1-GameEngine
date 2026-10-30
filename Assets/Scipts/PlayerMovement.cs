@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Hazard"))
+        if (other.CompareTag("Lava"))
         {
             gameManager.PlayerDied();
         }
