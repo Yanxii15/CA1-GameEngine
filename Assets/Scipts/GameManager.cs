@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         else
         {
             RespawnPlayer();
-            UpdateLighting(playerLight.pointLightOuterRadius);
+            UpdateLighting(playerCurrentLives);
             InnerLight(playerLight.pointLightOuterRadius);
         }
     }
@@ -59,12 +59,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void UpdateLighting(float amount)
+    void UpdateLighting(int lives)
     {   
-        //will be controlled based on player "Lives", tto represent ease when they die alot
         if (playerLight != null)
         {
-            playerLight.pointLightOuterRadius = amount;
+            if (lives == 3)
+            {
+                playerLight.pointLightOuterRadius = maxLightRadius;
+            }
+            else if (lives == 2)
+            {
+                playerLight.pointLightOuterRadius = middleLightRadius;
+            }
+            else if (lives == 1)
+            {
+                playerLight.pointLightOuterRadius = minLightRadius;
+            }
         }
     }
 
@@ -72,7 +82,7 @@ public class GameManager : MonoBehaviour
     {
         if (playerLight != null)
         {
-            playerLight.pointLightInnerRadius = currentOuter / ratio;
+            playerLight.pointLightInnerRadius = currentOuter * ratio;
         }
     }
 
