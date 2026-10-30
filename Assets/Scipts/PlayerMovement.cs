@@ -10,8 +10,6 @@ public class PlayerMovement : MonoBehaviour
     float currentSpeed;
     private Rigidbody2D rb;
 
-
-
     [Header("Movement Settings")]
     [SerializeField] private float MaxwalkSpeed = 5.0f;
     [SerializeField] private float jumpHeight = 2.5f;
@@ -75,7 +73,5 @@ public class PlayerMovement : MonoBehaviour
     {
         isOnGround = false;
     }
-
-
 
 }
