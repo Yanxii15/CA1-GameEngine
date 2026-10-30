@@ -2,7 +2,11 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [Header("UI Elements")]
+    public Button startButton;
+    //public Text scoreText;
+    [SerializeField] private Image[] healthImages;
+
     void Start()
     {
         
