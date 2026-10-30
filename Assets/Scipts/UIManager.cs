@@ -22,12 +22,6 @@ public class UIManager : MonoBehaviour
         playerMovement.enabled = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void UpdateHearts(int currentLives)
     {
         for (int i = 0; i < hearts.Length; i++)

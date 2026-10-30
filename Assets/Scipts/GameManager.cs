@@ -29,13 +29,7 @@ public class GameManager : MonoBehaviour
         UpdateLighting(playerCurrentLives);
         UpdateHearts(playerCurrentLives);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     public void PlayerDied()
     {
         playerCurrentLives--;
