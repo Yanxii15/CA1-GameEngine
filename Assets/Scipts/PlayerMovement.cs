@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {   
+    [SerializeField] private GameManager gameManager;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     private Vector2 moveDirection;
@@ -72,6 +73,14 @@ public class PlayerMovement : MonoBehaviour
     void OnCollisionExit2D(Collision2D collision)
     {
         isOnGround = false;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Hazard"))
+        {
+            gameManager.PlayerDied();
+        }
     }
 
 }
