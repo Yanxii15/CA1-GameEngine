@@ -3,7 +3,9 @@ using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
 {
-    
+    [SerializeField] private UIManager uiManager;
+
+
     [Header("Lighting")]
     //I likd thel ook of out 1.5 wiht in 0.35 therefore ue rtio akin to tha
     [SerializeField] private Light2D playerLight;
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
     {
         playerCurrentLives = playerMaxLives;
         UpdateLighting(playerCurrentLives);
+        UpdateHearts(playerCurrentLives);
     }
 
     // Update is called once per frame
@@ -36,6 +39,7 @@ public class GameManager : MonoBehaviour
     public void PlayerDied()
     {
         playerCurrentLives--;
+        UpdateHearts(playerCurrentLives);
         if (playerCurrentLives <= 0)
         {
             Debug.Log("Game Over!");

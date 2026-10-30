@@ -4,13 +4,10 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [Header("UI Elements")]
-    public Button startButton;
-    //public Text scoreText;
+    [SerializeField] private Button startButton;
     [SerializeField] private Image[] hearts;
     [SerializeField] private GameObject menu;
     [SerializeField] private PlayerMovement playerMovement;
-    [SerializeField] private GameManager gameManager;
-    [SerializeField] private UIManager uiManager;
     [SerializeField] private Sprite heartFull;
     [SerializeField] private Sprite heartEmpty;
 
@@ -37,11 +34,11 @@ public class UIManager : MonoBehaviour
         {
             if (i < currentLives)
             {
-                hearts[i].enabled = true;
+                hearts[i].sprite = heartFull;
             }
             else
             {
-                hearts[i].enabled = false;
+                hearts[i].sprite = heartEmpty;
             }
         }
     }
