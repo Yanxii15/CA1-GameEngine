@@ -27,13 +27,13 @@ public class GameManager : MonoBehaviour
     {
         playerCurrentLives = playerMaxLives;
         UpdateLighting(playerCurrentLives);
-        UpdateHearts(playerCurrentLives);
+        uiManager.UpdateHearts(playerCurrentLives);
     }
-    
+
     public void PlayerDied()
     {
         playerCurrentLives--;
-        UpdateHearts(playerCurrentLives);
+        uiManager.UpdateHearts(playerCurrentLives);
         if (playerCurrentLives <= 0)
         {
             Debug.Log("Game Over!");
