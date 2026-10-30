@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {   
-    [SerializeField] private GameManager gameManager;
+    private GameManager gameManager;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     private Vector2 moveDirection;
