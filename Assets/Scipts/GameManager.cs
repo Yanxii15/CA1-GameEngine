@@ -66,17 +66,17 @@ public class GameManager : MonoBehaviour
             if (lives == 3)
             {
                 playerLight.pointLightOuterRadius = minLightRadius;
-                float currentOuter = playerLight.pointLightOuterRadius;
+                currentOuter = playerLight.pointLightOuterRadius;
             }
             else if (lives == 2)
             {
                 playerLight.pointLightOuterRadius = middleLightRadius;
-                float currentOuter = playerLight.pointLightOuterRadius;
+                currentOuter = playerLight.pointLightOuterRadius;
             }
             else if (lives == 1)
             {
                 playerLight.pointLightOuterRadius = maxLightRadius;
-                float currentOuter = playerLight.pointLightOuterRadius;
+                currentOuter = playerLight.pointLightOuterRadius;
             }
         }
         InnerLight(currentOuter);
