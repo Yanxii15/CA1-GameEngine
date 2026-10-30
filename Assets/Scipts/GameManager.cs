@@ -3,6 +3,7 @@ using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
 {
+    private Rigidbody2D rb;
     [Header("Lighting")]
     //I likd thel ook of out 1.5 wiht in 0.35 therefore ue rtio akin to tha
     [SerializeField] private Light2D playerLight;
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         playerCurrentLives = playerMaxLives;
         UpdateLighting(minLightRadius);
         //Need o add Respawn point in here somehow. either get the players position when htey sart he game or a new object with a tag
@@ -41,17 +43,16 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            // Respawn the player at the respawn point
             RespawnPlayer();
+            UpdateLighting(playerLight.pointLightOuterRadius);
+            InnerLight(playerLight.pointLightOuterRadius);
         }
-        UpdateLighting(playerLight.pointLightOuterRadius);
-        InnerLight(playerLight.pointLightOuterRadius);
     }
 
     public void RespawnPlayer()
     {
         // Move the player to the respawn point
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject player = rb;
         if (player != null && playerRespawnPoint != null)
         {
             player.transform.position = playerRespawnPoint.position;
