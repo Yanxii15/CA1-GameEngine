@@ -81,6 +81,11 @@ public class PlayerMovement : MonoBehaviour
         {
             gameManager.PlayerDied();
         }
+
+        if (other.CompareTag("Exit"))
+        {
+            gameManager.PlayerWon();
+        }
     }
 
 }

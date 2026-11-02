@@ -85,4 +85,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void PlayerWon()
+    {
+        Debug.Log("Player has won the game!");
+        UIManager.ShowGameWon();
+    }
+
+    public void PlayerLost()
+    {
+        Debug.Log("Player has lost the game!");
+        UIManager.ShowGameOver();
+    }
+
 }

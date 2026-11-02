@@ -36,4 +36,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void ShowGameOver()
+    {
+        menu.GOMenu.SetActive(true);
+    }
+
+    public void ShowGameWon()
+    {
+        menu.WinMenu.SetActive(true);
+    }
+
 }
