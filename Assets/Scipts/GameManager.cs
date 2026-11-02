@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Lighting")]
     //I likd thel ook of out 1.5 wiht in 0.35 therefore ue rtio akin to tha
+    [SerializeField] private Light2D mapLight;
     [SerializeField] private Light2D playerLight;
     [SerializeField] private float maxLightRadius = 4.0f;
     [SerializeField] private float minLightRadius = 1.5f;
@@ -25,6 +26,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        mapLight.intensity = 1.5f;
+        mapLight.color = new Color(0.45f, 0.43f, 0.43f);
         playerCurrentLives = playerMaxLives;
         UpdateLighting(playerCurrentLives);
         uiManager.UpdateHearts(playerCurrentLives);
