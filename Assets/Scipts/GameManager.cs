@@ -97,17 +97,4 @@ public class GameManager : MonoBehaviour
         Debug.Log("Player has lost the game!");
         uiManager.ShowGameOver();
     }
-
-    public void RestartLevel()
-    {
-        // Reset player lives
-        playerCurrentLives = playerMaxLives;
-        UpdateLighting(playerCurrentLives);
-        uiManager.UpdateHearts(playerCurrentLives);
-
-        // Respawn the player
-        RespawnPlayer();
-
-    }
-
 }
