@@ -13,7 +13,6 @@ public class UIManager : MonoBehaviour
     [Header("Menus")]
     [SerializeField] private GameObject GOMenu;
     [SerializeField] private GameObject WinMenu;
-    [SerializeField] private 
 
     void Start()
     {
@@ -51,6 +50,12 @@ public class UIManager : MonoBehaviour
     {
         playerMovement.enabled = false;
         WinMenu.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        // Reload the current scene
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
 
 }
