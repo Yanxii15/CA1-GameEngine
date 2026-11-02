@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     [Header("Menus")]
     [SerializeField] private GameObject GOMenu;
     [SerializeField] private GameObject WinMenu;
+    [SerializeField] private 
 
     void Start()
     {

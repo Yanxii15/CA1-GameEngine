@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
         uiManager.UpdateHearts(playerCurrentLives);
         if (playerCurrentLives <= 0)
         {
+            PlayerLost();
             Debug.Log("Game Over!");
         }
         else
@@ -88,13 +89,25 @@ public class GameManager : MonoBehaviour
     public void PlayerWon()
     {
         Debug.Log("Player has won the game!");
-        UIManager.ShowGameWon();
+        uiManager.ShowGameWon();
     }
 
     public void PlayerLost()
     {
         Debug.Log("Player has lost the game!");
-        UIManager.ShowGameOver();
+        uiManager.ShowGameOver();
+    }
+
+    public void RestartLevel()
+    {
+        // Reset player lives
+        playerCurrentLives = playerMaxLives;
+        UpdateLighting(playerCurrentLives);
+        uiManager.UpdateHearts(playerCurrentLives);
+
+        // Respawn the player
+        RespawnPlayer();
+
     }
 
 }
