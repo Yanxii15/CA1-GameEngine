@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Lava
+  - Exit
   layers:
   - Default
   - TransparentFX
