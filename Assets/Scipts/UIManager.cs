@@ -43,11 +43,13 @@ public class UIManager : MonoBehaviour
 
     public void ShowGameOver()
     {
+        playerMovement.enabled = false;
         GOMenu.SetActive(true);
     }
 
     public void ShowGameWon()
     {
+        playerMovement.enabled = false;
         WinMenu.SetActive(true);
     }
 
