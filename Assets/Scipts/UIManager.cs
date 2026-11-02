@@ -10,6 +10,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Sprite heartFull;
     [SerializeField] private Sprite heartEmpty;
 
+    [Header("Menus")]
+    [SerializeField] private GameObject GOMenu;
+    [SerializeField] private GameObject WinMenu;
+
     void Start()
     {
         menu.SetActive(true);
@@ -38,12 +42,12 @@ public class UIManager : MonoBehaviour
 
     public void ShowGameOver()
     {
-        menu.GOMenu.SetActive(true);
+        GOMenu.SetActive(true);
     }
 
     public void ShowGameWon()
     {
-        menu.WinMenu.SetActive(true);
+        WinMenu.SetActive(true);
     }
 
 }
