@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [Header("UI Elements")]
-    [SerializeField] private Button startButton;
     [SerializeField] private Image[] hearts;
     [SerializeField] private GameObject menu;
     [SerializeField] private PlayerMovement playerMovement;
