@@ -27,6 +27,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform playerRespawnPoint;
     [SerializeField] private Rigidbody2D PlayerRb;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip coinCollectSound;
+    [SerializeField] private AudioClip playerDeathSound;
+    [SerializeField] private AudioClip playerWinSound;
+
     void Start()
     {
         mapLight.intensity = 0.1f;
@@ -39,6 +45,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDied()
     {
+        playSound(playerDeathSound);
         playerCurrentLives--;
         uiManager.UpdateHearts(playerCurrentLives);
         if (playerCurrentLives <= 0)
@@ -96,6 +103,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerWon()
     {
+        playSound(playerWinSound);
         Debug.Log("Player has won the game!");
         uiManager.ShowGameWon();
     }
@@ -108,10 +116,18 @@ public class GameManager : MonoBehaviour
 
     public void CollectCoin(GameObject coin)
     {
+        playSound(coinCollectSound);
         Destroy(coin);
         CoinCount++;
         uiManager.UpdateCoinCount(CoinCount);
     }
 
+    private void playSound(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
+    }
 
 }
