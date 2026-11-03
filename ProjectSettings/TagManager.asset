@@ -8,6 +8,7 @@ TagManager:
   - Lava
   - Exit
   - Box
+  - Coin
   layers:
   - Default
   - TransparentFX
