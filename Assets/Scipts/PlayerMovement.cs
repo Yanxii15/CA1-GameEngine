@@ -38,8 +38,7 @@ public class PlayerMovement : MonoBehaviour
             isForwards = false;
         }
 
-        // Send the facing direction to the animator (RacingR)
-        animator.SetBool("FacingR", isForwards);
+        spriteRenderer.flipX = !isForwards;
 
         // Jump logic
         if (InputSystem.actions["Jump"].triggered && isOnGround)
