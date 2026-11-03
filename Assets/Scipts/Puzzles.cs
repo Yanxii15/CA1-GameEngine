@@ -8,10 +8,16 @@ public class Puzzles : MonoBehaviour
     //Activated
     [SerializeField] private Sprite ButtonA;
     [SerializeField] private GameObject BridgePrefab;
+    [SerializeField] private Rigidbody2D BoxRb;
+    private Vector3 initialPosition;
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        Vector3 initialPosition = BoxRb.transform.position;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -34,6 +40,6 @@ public class Puzzles : MonoBehaviour
 
     public void ResetPuzzle()
     {
-        BridgePrefab.transform.position = new Vector3(15, 6, 0);
+        BoxRb.transform.position = initialPosition;
     }
 }
