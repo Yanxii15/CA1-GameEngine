@@ -2,34 +2,36 @@ using UnityEngine;
 
 public class Puzzles : MonoBehaviour
 {
-    [SerializeField] private GameManager gameManager;
+    private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite ButtonD;
     [SerializeField] private GameObject BridgePrefab;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = ButtonD;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Boxr"))
+        if (other.CompareTag("Box"))
         {   
             //Player has touched the button
             BridgePrefab.SetActive(true);
-        }else{
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Box"))
+        {   
+            //Player has left the button
             BridgePrefab.SetActive(false);
         }
     }
 
     public void ResetPuzzle()
     {
-        BridgePrefab.position = new Vector3(15, 6, 0);
+        BridgePrefab.transform.position = new Vector3(15, 6, 0);
     }
 }
