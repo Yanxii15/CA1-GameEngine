@@ -3,20 +3,22 @@ using UnityEngine;
 public class Puzzles : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
+    //dEactivated
     [SerializeField] private Sprite ButtonD;
+    //Activated
+    [SerializeField] private Sprite ButtonA;
     [SerializeField] private GameObject BridgePrefab;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = ButtonD;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Box"))
         {   
-            //Player has touched the button
+            spriteRenderer.sprite = ButtonA;
             BridgePrefab.SetActive(true);
         }
     }
@@ -25,7 +27,7 @@ public class Puzzles : MonoBehaviour
     {
         if (other.CompareTag("Box"))
         {   
-            //Player has left the button
+            spriteRenderer.sprite = ButtonD;
             BridgePrefab.SetActive(false);
         }
     }
