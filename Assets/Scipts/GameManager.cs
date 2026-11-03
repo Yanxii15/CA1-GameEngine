@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        mapLight.intensity = 1.5f;
+        mapLight.intensity = 0.1f;
         mapLight.color = new Color(0.45f, 0.43f, 0.43f);
         playerCurrentLives = playerMaxLives;
         UpdateLighting(playerCurrentLives);
