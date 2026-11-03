@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class UIManager : MonoBehaviour
     [Header("Menus")]
     [SerializeField] private GameObject GOMenu;
     [SerializeField] private GameObject WinMenu;
+
+    [Header("Coin")]
+    [SerializeField] private TextMeshProUGUI coinCountText;
 
     void Start()
     {
@@ -57,6 +61,11 @@ public class UIManager : MonoBehaviour
     {
         // Reload the current scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void UpdateCoinCount(int coinCount)
+    {
+        coinCountText.text = "Coins: " + coinCount.ToString();
     }
 
 }

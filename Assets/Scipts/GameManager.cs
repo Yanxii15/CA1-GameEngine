@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UIManager uiManager;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private Puzzles puzzles;
+    private int CoinCount = 0;
 
 
     [Header("Lighting")]
@@ -103,4 +104,13 @@ public class GameManager : MonoBehaviour
         Debug.Log("Player has lost the game!");
         uiManager.ShowGameOver();
     }
+
+    public void CollectCoin(GameObject coin)
+    {
+        Destroy(coin);
+        coinCount++;
+        uiManager.UpdateCoinCount(coin);
+    }
+
+
 }

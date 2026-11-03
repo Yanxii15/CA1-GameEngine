@@ -86,6 +86,10 @@ public class PlayerMovement : MonoBehaviour
         {
             gameManager.PlayerWon();
         }
-    }
 
+        if (other.CompareTag("Coin"))
+        {
+            gameManager.CollectCoin(other.gameObject);
+        }
+    }
 }
