@@ -6131,7 +6131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   gameManager: {fileID: 510141039}
   MaxwalkSpeed: 5
-  jumpHeight: 2
+  jumpHeight: 2.5
   isForwards: 1
 --- !u!95 &983586791
 Animator:
