@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
         playerCurrentLives = playerMaxLives;
         UpdateLighting(playerCurrentLives);
         uiManager.UpdateHearts(playerCurrentLives);
+        uiManager.UpdateCoinCount(CoinCount);
     }
 
     public void PlayerDied()
@@ -108,8 +109,8 @@ public class GameManager : MonoBehaviour
     public void CollectCoin(GameObject coin)
     {
         Destroy(coin);
-        coinCount++;
-        uiManager.UpdateCoinCount(coin);
+        CoinCount++;
+        uiManager.UpdateCoinCount(CoinCount);
     }
 
 
