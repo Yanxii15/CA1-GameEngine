@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveDirection;
     float currentSpeed;
     private Rigidbody2D rb;
+    float YVelocity;
 
     [Header("Movement Settings")]
     [SerializeField] private float MaxwalkSpeed = 5.0f;
@@ -55,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         currentSpeed = Mathf.Abs(rb.linearVelocity.x);
         animator.SetFloat("Speed", currentSpeed);
         YVelocity = rb.linearVelocity.y;
-        animator.SetInt("YVelocity", YVelocity);
+        animator.SetFloat("YVelocity", YVelocity);
     }
 
     void FixedUpdate()
