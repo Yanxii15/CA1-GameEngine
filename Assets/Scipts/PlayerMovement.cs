@@ -45,11 +45,17 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Sqrt(jumpHeight * -2f * Physics2D.gravity.y));
             isOnGround = false;
+            animator.SetBool("IsGrounded", false);
+        }else
+        {
+            animator.SetBool("IsGrounded", isOnGround);
         }
 
-        // Speed parameter for animator
+        // Parameters for animator
         currentSpeed = Mathf.Abs(rb.linearVelocity.x);
         animator.SetFloat("Speed", currentSpeed);
+        YVelocity = rb.linearVelocity.y;
+        animator.SetInt("YVelocity", YVelocity);
     }
 
     void FixedUpdate()
