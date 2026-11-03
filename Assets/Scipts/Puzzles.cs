@@ -27,4 +27,9 @@ public class Puzzles : MonoBehaviour
             BridgePrefab.SetActive(false);
         }
     }
+
+    public void ResetPuzzle()
+    {
+        BridgePrefab.position = new Vector3(15, 6, 0);
+    }
 }

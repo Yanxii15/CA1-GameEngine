@@ -4,6 +4,8 @@ using UnityEngine.Rendering.Universal;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private UIManager uiManager;
+    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private Puzzles puzzles;
 
 
     [Header("Lighting")]
@@ -57,6 +59,7 @@ public class GameManager : MonoBehaviour
             PlayerRb.position = playerRespawnPoint.position;
             // Reset player's velocity to zero
             PlayerRb.linearVelocity = Vector2.zero;
+            puzzles.ResetPuzzle();
         }
     }
 
