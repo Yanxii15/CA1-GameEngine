@@ -17,7 +17,7 @@ public class Puzzles : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        Vector3 initialPosition = BoxRb.transform.position;
+        initialPosition = BoxRb.transform.position;
     }
 
     void OnTriggerEnter2D(Collider2D other)
