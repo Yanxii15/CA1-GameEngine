@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -7,6 +8,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private Puzzles puzzles;
     private int CoinCount = 0;
+
+    [Header("Stages/Scenes")]
+    [SerializeField] private string nextSceneName = "Stage2";
 
 
     [Header("Lighting")]
@@ -68,7 +72,10 @@ public class GameManager : MonoBehaviour
             PlayerRb.position = playerRespawnPoint.position;
             // Reset player's velocity to zero
             PlayerRb.linearVelocity = Vector2.zero;
-            puzzles.ResetPuzzle();
+            if (puzzles != null)
+            {
+                puzzles.ResetPuzzle();
+            }  
         }
     }
 
@@ -105,7 +112,14 @@ public class GameManager : MonoBehaviour
     {
         playSound(playerWinSound);
         Debug.Log("Player has won the game!");
-        uiManager.ShowGameWon();
+        if (!string.IsNullOrEmpty(nextSceneName))
+        {
+            SceneManager.LoadScene(nextSceneName);
+        }
+        else
+        {
+            uiManager.ShowGameWon();
+        }
     }
 
     public void PlayerLost()
