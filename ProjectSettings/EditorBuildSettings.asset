@@ -12,4 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Stage2.unity
     guid: 739fd44b8fcb6454a9cc1af6a18daacd
   m_configObjects:
+    com.unity.adaptivePerformance.basic.provider_settings: {fileID: 11400000, guid: 296110262f370384e9ee5785b3f7e361, type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: e606240fcb48c07408496be1ffae198c, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: dcca0a80cb5ef3043848d47e01cc84bf, type: 2}
+    com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
