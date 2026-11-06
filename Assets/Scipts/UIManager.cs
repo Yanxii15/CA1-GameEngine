@@ -49,19 +49,21 @@ public class UIManager : MonoBehaviour
 
     public void ShowGameOver()
     {
+        Time.timeScale = 0f;
         playerMovement.enabled = false;
         GOMenu.SetActive(true);
     }
 
     public void ShowGameWon()
     {
+        Time.timeScale = 0f; 
         playerMovement.enabled = false;
         WinMenu.SetActive(true);
     }
 
     public void RestartGame()
     {
-        // Reload the current scene
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
