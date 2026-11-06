@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private Puzzles puzzles;
     private int CoinCount = 0;
+    private int shardsHeld = 0;
 
     [Header("Stages/Scenes")]
     [SerializeField] private string nextSceneName = "Stage2";
@@ -22,7 +23,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float middleLightRadius = 2.75f;
     // all these ore outer radius max
     [SerializeField] private float ratio = 0.24f;
-    [SerializeField] private int shardsHeld = 0;
 
     [Header("Lives")]
     [SerializeField] private int playerMaxLives = 3;
