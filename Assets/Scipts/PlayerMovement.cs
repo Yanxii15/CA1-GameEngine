@@ -86,16 +86,18 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("Lava"))
         {
             gameManager.PlayerDied();
-        }
-
-        if (other.CompareTag("Exit"))
+        } else if (other.CompareTag("Enemy"))
+        {
+            gameManager.PlayerDied();
+        } else if (other.CompareTag("Exit"))
         {
             gameManager.PlayerWon();
-        }
-
-        if (other.CompareTag("Coin"))
+        } else if (other.CompareTag("Coin"))
         {
             gameManager.CollectCoin(other.gameObject);
+        } else if (other.CompareTag("Shard"))
+        {
+            gameManager.CollectShard(other.gameObject);
         }
     }
 }

@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float middleLightRadius = 2.75f;
     // all these ore outer radius max
     [SerializeField] private float ratio = 0.24f;
+    [SerializeField] private int ShardsHeld = 0;
 
     [Header("Lives")]
     [SerializeField] private int playerMaxLives = 3;
@@ -142,6 +143,15 @@ public class GameManager : MonoBehaviour
         {
             audioSource.PlayOneShot(clip);
         }
+    }
+
+    public void CollectShard(GameObject shard)
+    {
+        playSound(coinCollectSound);
+        //Need to make a ew sound
+        Destroy(shard);
+        ShardsHeld++;
+        UpdateLighting(playerCurrentLives - ShardsHeld);
     }
 
 }
