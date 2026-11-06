@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float middleLightRadius = 2.75f;
     // all these ore outer radius max
     [SerializeField] private float ratio = 0.24f;
-    [SerializeField] private int ShardsHeld = 0;
+    [SerializeField] private int shardsHeld = 0;
 
     [Header("Lives")]
     [SerializeField] private int playerMaxLives = 3;
