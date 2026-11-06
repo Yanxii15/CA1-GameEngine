@@ -22,12 +22,14 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         menu.SetActive(true);
+        Time.timeScale = 0f; // Pause the game at the start
     }
 
     public void StartGame()
     {
         menu.SetActive(false);
         playerMovement.enabled = true;
+        Time.timeScale = 1f; // Resume the game
     }
 
     public void UpdateHearts(int currentLives)
@@ -66,6 +68,11 @@ public class UIManager : MonoBehaviour
     public void UpdateCoinCount(int coinCount)
     {
         coinCountText.text = "Coins: " + coinCount.ToString();
+    }
+
+    public void LoadSTage(string stageName)
+    {
+        SceneManager.LoadScene(stageName);
     }
 
 }
