@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
     public void PlayerDied()
     {
         playSound(playerDeathSound);
+        shardsHeld = 0;
         playerCurrentLives--;
         uiManager.UpdateHearts(playerCurrentLives);
         if (playerCurrentLives <= 0)

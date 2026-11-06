@@ -2,7 +2,14 @@ using UnityEngine;
 
 public class HatchButton : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [Header("References/Objects")]
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private PlatformEffector2D hatchPlatformEffector;
+    [SerializeField] private SpriteRenderer hatchSpriteRenderer;
+    [SerializeField] private Sprite hatchOpenSprite;
+    [SerializeField] private Sprite hatchClosedSprite;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField]
     void Start()
     {
         
