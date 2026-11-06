@@ -151,8 +151,8 @@ public class GameManager : MonoBehaviour
         playSound(coinCollectSound);
         //Need to make a ew sound
         Destroy(shard);
-        ShardsHeld++;
-        UpdateLighting(playerCurrentLives - ShardsHeld);
+        shardsHeld++;
+        UpdateLighting(playerCurrentLives - shardsHeld);
     }
 
 }
