@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class HatchButton : MonoBehaviour
 {
+    private SpriteRenderer spriteRenderer;
+
     [Header("References/Objects")]
     [SerializeField] private PlatformEffector2D hatchPlatformEffector;
     [SerializeField] private SpriteRenderer hatchSpriteRenderer;
