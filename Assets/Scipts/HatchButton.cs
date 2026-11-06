@@ -10,8 +10,7 @@ public class HatchButton : MonoBehaviour
     [SerializeField] private Sprite hatchOpenSprite;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private Sprite pressedButtonSprite;
-    [SerializeField] private Sprite unpressedButtonSprite;
-    [SerializeField] private bool isButtonPressed = false;
+    private bool isButtonPressed = false;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
