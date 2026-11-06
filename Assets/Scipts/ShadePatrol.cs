@@ -6,10 +6,10 @@ public class ShadePatrol : MonoBehaviour
     [Header("Patrol Settings")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float patrolSpeed = 2.0f;
-    [SerializeField] private float targetX = 0.0f;
+    [SerializeField] private float leftBoundary = 24.5f;
+    [SerializeField] private float rightBoundary = 33.5f;
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -17,17 +17,17 @@ public class ShadePatrol : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Move the shade towards the target position
-        Vector2 targetPosition = new Vector2(targetX, rb.position.y);
-        rb.position = Vector2.MoveTowards(rb.position, targetPosition, patrolSpeed * Time.fixedDeltaTime);
+        rb.linearVelocity = new Vector2(patrolSpeed, rb.linearVelocity.y);
 
-        // Check if the shade has reached the target position
-        if (Mathf.Approximately(rb.position.x, targetX))
+        if (transform.position.x >= rightBoundary)
         {
-            // Reverse the direction of movement
-            patrolSpeed = -patrolSpeed;
-            // Update the target position to the opposite side
-            targetX = -targetX;
+            patrolSpeed = -Mathf.Abs(patrolSpeed);
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (transform.position.x <= leftBoundary)
+        {
+            patrolSpeed = Mathf.Abs(patrolSpeed);
+            transform.localScale = new Vector3(1, 1, 1);
         }
     }
 

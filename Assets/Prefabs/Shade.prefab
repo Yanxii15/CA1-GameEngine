@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 1972176883014847622}
   - component: {fileID: 3467171770840324488}
   - component: {fileID: 9160631839100193537}
+  - component: {fileID: 4727604212154427516}
   m_Layer: 0
   m_Name: Shade
   m_TagString: Enemy
@@ -260,3 +261,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.6, y: 0.75}
   m_EdgeRadius: 0
+--- !u!114 &4727604212154427516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8114162336707840602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f6626d967727b847be51f39c85221d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShadePatrol
+  rb: {fileID: 0}
+  patrolSpeed: 2
+  targetX: 0
+  leftBoundary: 24.5
+  rightBoundary: 33.5
